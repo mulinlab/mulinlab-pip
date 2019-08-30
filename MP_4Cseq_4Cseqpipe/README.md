@@ -4,6 +4,11 @@
 Mapping and analyzing 4C-seq experiments using 4Cseqpipe
 
 ## Install and configure
+
+### Prepare reference
+
+Please refer the [README](./prepare_reference/README.md) to prepare reference data.
+
 ### Install
 Just copy the template directory to your work directory.
 ```shell
