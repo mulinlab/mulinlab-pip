@@ -23,5 +23,5 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 ---
 
-* [MP_4Cseq_4Cseqpipe](./MP_4Cseq/4Cseqpipe/README.md): Mapping and analyzing 4C-seq experiments using 4Cseqpipe
+* [MP_4Cseq_4Cseqpipe](./MP_4Cseq_4Cseqpipe/README.md): Mapping and analyzing 4C-seq experiments using 4Cseqpipe
 
