@@ -5,3 +5,21 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 ---
 
+## Pre-processing
+
+* [MP_preSeq_FastQC](./MP_preSeq_FastQC/README.md): Quality control for NGS reads using FastQC
+
+---
+
+## DNA-seq
+
+---
+
+## RNA-seq
+
+---
+
+## 4C-seq
+
+---
+
