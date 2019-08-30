@@ -13,6 +13,8 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 ## DNA-seq
 
+* [MP_DNAseq_germline_GATK](./MP_DNAseq_germline_GATK/README.md): Calling germline SNVs and InDels for single sample or cohort using GATK
+
 ---
 
 ## RNA-seq
