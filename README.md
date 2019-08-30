@@ -27,3 +27,8 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 * [MP_4Cseq_4Cseqpipe](./MP_4Cseq_4Cseqpipe/README.md): Mapping and analyzing 4C-seq experiments using 4Cseqpipe
 
+---
+
+## QTLs
+
+* [MP_eQTL_QTLtools](./MP_eQTL_QTLtools/README.md): eQTL-mapping using QTLtools
