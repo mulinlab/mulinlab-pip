@@ -35,6 +35,12 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 ---
 
+## Hi-C
+
+* [MP_HiC_HiC-Pro](./MP_HiC_HiC-Pro/README.md): Hi-C data processing pipeline using HiC-Pro
+
+---
+
 ## QTLs
 
 * [MP_eQTL_QTLtools](./MP_eQTL_QTLtools/README.md): eQTL-mapping using QTLtools

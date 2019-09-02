@@ -1,0 +1,11 @@
+
+#########################################################################
+## Paths and Settings  - Start editing here !
+#########################################################################
+
+PREFIX = /home/zhengzhanye/pipeline/hic_pro/
+BOWTIE2_PATH = 
+SAMTOOLS_PATH = 
+R_PATH = 
+PYTHON_PATH = 
+CLUSTER_SYS = 
