@@ -21,6 +21,12 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 ---
 
+## ChIP-seq
+
+* [MP_ChIPseq_BDS](./MP_ChIPseq_BDS/README.md): Transcription Factor and Histone ChIP-seq processing pipeline using BDS (BigDataScript)
+
+---
+
 ## 4C-seq
 
 ---
