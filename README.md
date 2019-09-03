@@ -44,3 +44,9 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 ## QTLs
 
 * [MP_eQTL_QTLtools](./MP_eQTL_QTLtools/README.md): eQTL-mapping using QTLtools
+
+---
+
+## GWAS
+
+* [MP_GWAS](./MP_GWAS/README.md): A suit of GWAS workflows for [CHIMGEN]([http://chimgen.tmu.edu.cn](http://chimgen.tmu.edu.cn/)) project built on [NEXTFLOW](<https://www.nextflow.io/>) framework

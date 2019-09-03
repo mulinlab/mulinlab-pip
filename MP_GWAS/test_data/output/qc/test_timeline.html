@@ -1,0 +1,222 @@
+<!doctype html>
+<!--
+  ~ Copyright (c) 2013-2018, Centre for Genomic Regulation (CRG).
+  ~ Copyright (c) 2013-2018, Paolo Di Tommaso and the respective authors.
+  ~
+  ~   This file is part of 'Nextflow'.
+  ~
+  ~   Nextflow is free software: you can redistribute it and/or modify
+  ~   it under the terms of the GNU General Public License as published by
+  ~   the Free Software Foundation, either version 3 of the License, or
+  ~   (at your option) any later version.
+  ~
+  ~   Nextflow is distributed in the hope that it will be useful,
+  ~   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~   GNU General Public License for more details.
+  ~
+  ~   You should have received a copy of the GNU General Public License
+  ~   along with Nextflow.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + prot + "code.jquery.com/jquery-latest.min.js' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "d3js.org/d3.v3.min.js' charset='utf-8' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "cdn.rawgit.com/nextflow-io/d3-timeline/82622c4cc35bac7283b3a317826b0709ac1ae476/src/d3-timeline.js' type='text/javascript' %3E%3C/script%3E"));
+</script>
+<style type="text/css">
+* {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.axis path,
+.axis line {
+fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 10px;
+}
+
+div#timeline g text {
+  font-size: 13px;
+}
+
+text.timeline-label {
+  font-size: 13px;
+}
+
+#timeline2 .axis {
+  transform: translate(0px,30px);
+  -ms-transform: translate(0px,30px); /* IE 9 */
+  -webkit-transform: translate(0px,30px); /* Safari and Chrome */
+  -o-transform: translate(0px,30px); /* Opera */
+  -moz-transform: translate(0px,30px); /* Firefox */
+}
+
+.coloredDiv {
+  height:20px; width:20px; float:left;
+}
+
+#footer {
+  padding-top: 3em; color: #bfbfbf; font-size: 13px;
+}
+
+#footer a:visited {
+  color: #bfbfbf;
+  text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+var handler=null;
+// see https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20c
+var colors = d3.scale.category20c().domain(d3.range(0,20)).range()
+
+function c0(index) { return "#9c9c9c"; }
+function c1(index) { return "#bdbdbd"; }
+function c2(index) { return colors[index % 16]; } // <-- note: uses only the first 16 colors
+
+var elapsed="32.5s"
+var beginningMillis=1567431393575;
+var endingMillis=1567431426115;
+var data=[
+{"label": "identifyIndivDiscSexinfo (1)", "times": [{"starting_time": 1567431394365, "ending_time": 1567431394389, "color":c1(0)}, {"starting_time": 1567431394389, "ending_time": 1567431394630, "color":c2(0), "label": "355ms \/ 93.8 GB"}, {"starting_time": 1567431394630, "ending_time": 1567431394720, "color":c1(0)}]},
+{"label": "getDuplicateMarkers (1)", "times": [{"starting_time": 1567431394385, "ending_time": 1567431394393, "color":c1(1)}, {"starting_time": 1567431394393, "ending_time": 1567431398616, "color":c2(1), "label": "5.6s \/ 27.1 MB"}, {"starting_time": 1567431398616, "ending_time": 1567431399981, "color":c1(1)}]},
+{"label": "showHWEStats (1)", "times": [{"starting_time": 1567431394765, "ending_time": 1567431394821, "color":c1(2)}, {"starting_time": 1567431394821, "ending_time": 1567431399689, "color":c2(2), "label": "5.6s \/ 66.9 MB"}, {"starting_time": 1567431399689, "ending_time": 1567431400367, "color":c1(2)}]},
+{"label": "removeDuplicateSNPs (1)", "times": [{"starting_time": 1567431399998, "ending_time": 1567431400081, "color":c1(3)}, {"starting_time": 1567431400081, "ending_time": 1567431400308, "color":c2(3), "label": "377ms \/ 93.8 GB"}, {"starting_time": 1567431400308, "ending_time": 1567431400375, "color":c1(3)}]},
+{"label": "getInitMAF (1)", "times": [{"starting_time": 1567431400393, "ending_time": 1567431400476, "color":c1(4)}, {"starting_time": 1567431400476, "ending_time": 1567431400737, "color":c2(4), "label": "413ms \/ 93.8 GB"}, {"starting_time": 1567431400737, "ending_time": 1567431400806, "color":c1(4)}]},
+{"label": "removeQCPhase1 (1)", "times": [{"starting_time": 1567431400402, "ending_time": 1567431400478, "color":c1(5)}, {"starting_time": 1567431400478, "ending_time": 1567431401301, "color":c2(5), "label": "5.9s \/ 93.8 GB"}, {"starting_time": 1567431401301, "ending_time": 1567431406295, "color":c1(5)}]},
+{"label": "generateIndivMissingnessPlot (1)", "times": [{"starting_time": 1567431400406, "ending_time": 1567431400479, "color":c1(6)}, {"starting_time": 1567431400479, "ending_time": 1567431401497, "color":c2(6), "label": "5.7s \/ 2.1 GB"}, {"starting_time": 1567431401497, "ending_time": 1567431406124, "color":c1(6)}]},
+{"label": "generateSnpMissingnessPlot (1)", "times": [{"starting_time": 1567431400409, "ending_time": 1567431400480, "color":c1(7)}, {"starting_time": 1567431400480, "ending_time": 1567431401580, "color":c2(7), "label": "5.7s \/ 2.1 GB"}, {"starting_time": 1567431401580, "ending_time": 1567431406130, "color":c1(7)}]},
+{"label": "showInitMAF (1)", "times": [{"starting_time": 1567431400832, "ending_time": 1567431400906, "color":c1(8)}, {"starting_time": 1567431400906, "ending_time": 1567431401988, "color":c2(8), "label": "5.7s \/ 2.2 GB"}, {"starting_time": 1567431401988, "ending_time": 1567431406500, "color":c1(8)}]},
+{"label": "calculateSampleHeterozygosity (1)", "times": [{"starting_time": 1567431406318, "ending_time": 1567431406395, "color":c1(9)}, {"starting_time": 1567431406395, "ending_time": 1567431406550, "color":c2(9), "label": "366ms \/ 93.8 GB"}, {"starting_time": 1567431406550, "ending_time": 1567431406684, "color":c1(9)}]},
+{"label": "pruneForIBD (1)", "times": [{"starting_time": 1567431406323, "ending_time": 1567431406396, "color":c1(10)}, {"starting_time": 1567431406396, "ending_time": 1567431406906, "color":c2(10), "label": "599ms \/ 93.8 GB"}, {"starting_time": 1567431406906, "ending_time": 1567431406922, "color":c1(10)}]},
+{"label": "compPCA (1)", "times": [{"starting_time": 1567431406327, "ending_time": 1567431406397, "color":c1(11)}, {"starting_time": 1567431406397, "ending_time": 1567431408557, "color":c2(11), "label": "5.9s \/ 93.8 GB"}, {"starting_time": 1567431408557, "ending_time": 1567431412207, "color":c1(11)}]},
+{"label": "getBadIndivsMissingHet (1)", "times": [{"starting_time": 1567431406706, "ending_time": 1567431406784, "color":c1(12)}, {"starting_time": 1567431406784, "ending_time": 1567431407353, "color":c2(12), "label": "637ms \/ 2.1 GB"}]},
+{"label": "generateMissHetPlot (1)", "times": [{"starting_time": 1567431406711, "ending_time": 1567431406785, "color":c1(13)}, {"starting_time": 1567431406785, "ending_time": 1567431408564, "color":c2(13), "label": "5.8s \/ 2.1 GB"}, {"starting_time": 1567431408564, "ending_time": 1567431412534, "color":c1(13)}]},
+{"label": "findRelatedIndiv (1)", "times": [{"starting_time": 1567431406962, "ending_time": 1567431407023, "color":c1(14)}, {"starting_time": 1567431407023, "ending_time": 1567431407531, "color":c2(14), "label": "577ms \/ 2.1 GB"}, {"starting_time": 1567431407531, "ending_time": 1567431407539, "color":c1(14)}]},
+{"label": "removeQCIndivs (1)", "times": [{"starting_time": 1567431407572, "ending_time": 1567431407640, "color":c1(15)}, {"starting_time": 1567431407640, "ending_time": 1567431408252, "color":c2(15), "label": "5.8s \/ 2 GB"}, {"starting_time": 1567431408252, "ending_time": 1567431413346, "color":c1(15)}]},
+{"label": "drawPCA (1)", "times": [{"starting_time": 1567431412236, "ending_time": 1567431412307, "color":c1(16)}, {"starting_time": 1567431412307, "ending_time": 1567431413049, "color":c2(16), "label": "5.7s \/ 2.2 GB"}, {"starting_time": 1567431413049, "ending_time": 1567431417923, "color":c1(16)}]},
+{"label": "calculateMaf (1)", "times": [{"starting_time": 1567431413363, "ending_time": 1567431413444, "color":c1(17)}, {"starting_time": 1567431413444, "ending_time": 1567431413711, "color":c2(17), "label": "368ms \/ 93.8 GB"}, {"starting_time": 1567431413711, "ending_time": 1567431413731, "color":c1(17)}]},
+{"label": "generateHwePlot (1)", "times": [{"starting_time": 1567431413753, "ending_time": 1567431413831, "color":c1(18)}, {"starting_time": 1567431413831, "ending_time": 1567431415026, "color":c2(18), "label": "5.7s \/ 2.2 GB"}, {"starting_time": 1567431415026, "ending_time": 1567431419434, "color":c1(18)}]},
+{"label": "generateMafPlot (1)", "times": [{"starting_time": 1567431413757, "ending_time": 1567431413832, "color":c1(19)}, {"starting_time": 1567431413832, "ending_time": 1567431414904, "color":c2(19), "label": "5.7s \/ 2.1 GB"}, {"starting_time": 1567431414904, "ending_time": 1567431419440, "color":c1(19)}]},
+{"label": "produceReports (1)", "times": [{"starting_time": 1567431419482, "ending_time": 1567431419540, "color":c1(20)}, {"starting_time": 1567431419540, "ending_time": 1567431420084, "color":c2(20), "label": "5.8s \/ 2 GB"}, {"starting_time": 1567431420084, "ending_time": 1567431425240, "color":c1(20)}]}
+]
+
+
+function getTickFormat() {
+  var MIN = 1000 * 60
+  var HOUR = MIN * 60
+  var DAY = HOUR * 24
+  var delta = (endingMillis - beginningMillis)
+
+  if( delta < 2 * MIN ) {
+    return {
+      format: d3.time.format("%S"),
+      tickTime: d3.time.seconds,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * HOUR ) {
+    return {
+      format: d3.time.format("%M"),
+      tickTime: d3.time.minutes,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * DAY ) {
+    return {
+      format: d3.time.format("%H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 1,
+      tickSize: 6
+    }
+  }
+
+  if( delta <= 7 * DAY ) {
+    return {
+      format: d3.time.format("%b %e %H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 6,
+      tickSize: 6
+    }
+  }
+
+  return {
+    format: d3.time.format("%b %e"),
+    tickTime: d3.time.days,
+    tickInterval: 1,
+    tickSize: 6
+  }
+}
+
+function getLabelMargin(scale) {
+    $('<span class="labelSpan" style="display: none"></span>').appendTo('body');
+
+    var labelMargin = 0
+    $.each(data, function (key, value) {
+      labelMargin = Math.max(labelMargin, $('.labelSpan').html(value.label).width());
+    });
+
+    $('.labelSpan').remove();
+
+    return (labelMargin * scale);
+}
+
+function render() {
+  handler=null;
+  $("#timeline").empty()
+  $('#label_elapsed').text(elapsed)
+  $('#label_launch').text( d3.time.format('%d %b %Y %H:%M')(new Date(beginningMillis)) )
+
+  var width = $(window).width();
+  var chart = d3.timeline()
+    .stack() // toggles graph stacking
+    .margin({left:getLabelMargin(0.85), right:100, top:0, bottom:0})
+    .tickFormat( getTickFormat() )
+    .rowSeperators('#f5f5f5')
+    .showTimeAxisTick()
+    ;
+  var svg = d3.select("#timeline").append("svg").attr("width", width).datum(data).call(chart);
+}
+
+function hrz() {
+if( handler != null ) clearTimeout(handler)
+  handler = setTimeout(render, 150);
+}
+
+$(document).ready(render)
+$(window).resize(hrz); // resize the applet on window resize
+</script>
+</head>
+
+<body>
+<div>
+  <h3>Processes execution timeline</h3>
+  <p>
+    Launch time: <span id='label_launch'> </span><br>
+    Elapsed time: <span id='label_elapsed'> </span>
+  </p>
+  <div id="timeline"></div>
+</div>
+
+<div id='footer'>
+  Created with Nextflow -- <a href='http://www.nextflow.io' target='_blank'>http://nextflow.io</a>
+</div>
+
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Clink href='" + prot + "fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css' %3E%3C/link%3E"));
+</script>
+</body>
+</html>
