@@ -20,6 +20,8 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 ## RNA-seq
 
+* [MP_RNAseq_RNACocktail](./MP_RNAseq_RNACocktail/README.md): RNA-seq analysis using RNACocktail, from sequencing reads to differential expression genes, including several plots
+
 ---
 
 ## ChIP-seq
