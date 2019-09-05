@@ -86,13 +86,13 @@ There are 6 folders will be created, which can be grouped to 3 groups.
 
 1. RNACocktail folders
    	* `RNACocktail_work`: the work folder when RNACocktail was running, which contains all files including temporary and log files.
-      	* `RNACocktail_out`: the result folder for RNACocktail which should be used mainly.
+    * `RNACocktail_out`: the result folder for RNACocktail which should be used mainly.
 2. data folders: these two folders are generated from RNACocktail folders
    	* `expression`: the expression data folder
-      	* `deg`: the DEG data folder
+    * `deg`: the DEG data folder
 3. figure folders: these two folders are generated from data folders
    	* `plot_expression`: figures which display the expression data, including samples clustering and sample PCA.
-      	* `plot_deg`: figures which display the differential expression genes' data, including valcano and heatmap, only the top 100 genes are labeled or plotted.
+    * `plot_deg`: figures which display the differential expression genes' data, including valcano and heatmap, only the top 100 genes are labeled or plotted.
 
 ## Key notes
 
