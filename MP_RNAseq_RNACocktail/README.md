@@ -142,6 +142,8 @@ bash bin/05_plot_deg.sh test_data/output
 ## ToDo
 
 1. Change the hard cutoff for DEG filtering to user's configuration.
+2. Change `$path_ref` and `$path_output` to parameters in configure file `others.conf`.
+3. Add GEA based on DEG.
 
 ## Author
 
