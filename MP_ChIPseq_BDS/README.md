@@ -38,6 +38,8 @@ $ cd $HOME
 $ wget https://github.com/leepc12/BigDataScript/blob/master/distro/bds_Linux.tgz?raw=true -O bds_Linux.tgz
 $ tar zxvf bds_Linux.tgz
 ```
+Add `export PATH=$PATH:$HOME/.bds` to your `$HOME/.bashrc`. If Java memory occurs, add `export _JAVA_OPTIONS="-Xms256M -Xmx728M -XX:ParallelGCThreads=1"` too.
+
 
 ### Pipeline
 
