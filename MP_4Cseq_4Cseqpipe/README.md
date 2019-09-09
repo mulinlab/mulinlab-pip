@@ -61,8 +61,25 @@ The main output file is a figure in PNG format, which is stored in the `figures`
 ### QC
 ### Tricks
 * For PE reads, two files can be concatenated to one file. Besides, you can try to run this pipeline for each file, and choose the best result.
+
 * If the pipeline terminate for no enough data, you can extent the genome range (controlled by `-calc_from` and `calc_to`) and try again.
-* The parameter `-convert_qual` may should be set to `1` if the pipeline fail. *But what is its meaning?*
+
+* The parameter `-convert_qual` may should be set to `1` if the pipeline fail. *But what is its meaning?* That is, if the error occurs:
+
+```
+Mapper will quit now. Please reduce the value for "min_precision_for_weight" setting and run again the program.
+Also beware that you might experience slow run-times with low quality reads.
+To improve run-times consider lowering down the precision by reducing the value of "max_mismatches".
+```
+the first step should be:
+```
+# 1. Convert FASTQ files to "raw" format
+## $id: Corresponding to the "index.txt" file
+## $fastq: Path to the FASTQ file
+perl 4cseqpipe.pl -fastq2raw -ids $id -fastq_fn $fastq -convert_qual 1
+```
+
+
 ### FAQ
 ### Others
 Before runing the pipeline, please contact the experimentalist to collect information required for the pipeline:
