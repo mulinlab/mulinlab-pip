@@ -10,7 +10,9 @@ my $enzyme = "HindIII";             ## enzyme that used in hic exprement
 
 #my $di = "00_fastq";
 my $di = "../test_data";
-my $do = "../test_result/01.00_fq_${enzyme}";
+my $dt = "../test_result";
+mkdir $dt unless -d $dt;
+my $do = "$dt/01.00_fq_${enzyme}";
 mkdir $do unless -d $do;
 
 foreach my $cell (@cells) {
