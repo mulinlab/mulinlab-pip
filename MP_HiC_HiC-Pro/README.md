@@ -51,7 +51,7 @@ $ conda install homer
 ### HiC-Pro install
 
 ```shell
-$ cd package
+$ wget https://github.com/zhengzhanye/HiC-Pro/archive/master.zip
 $ unzip master.zip
 $ cd HiC-Pro-master
 Edit configure-install.txt (if dependencies install successful,you only need manually defined the path to  'installation folder'; else you need edit the config-install.txt file and manually defined the paths to dependencies.)
@@ -68,6 +68,8 @@ $ make install
   $ cd 00_hg19
   $ wget https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
   $ gunzip hg19.fa.gz
+  $ http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes
+  $ head -n 24 hg19.chrom.sizes | sort -V > ./hg19_size.txt
   ```
 
   
@@ -115,7 +117,7 @@ $ make install
 
    ```shell
    $ cd bin
-   $ 01.0_pre4hicpro.pl
+   $ perl 01.0_pre4hicpro.pl
    ```
 
    detail information see 01.0_pre4hicpro.pl.
@@ -125,6 +127,8 @@ $ make install
    ```shell
    $ bash 01.1_hicpro.sh
    ```
+
+   **NOTE：** 需要修改 .sh 中的HiC-Pro的路径，以及修改  $fcfg指代的cfg 文件中的路径。
 
 3. bam to sam
 
