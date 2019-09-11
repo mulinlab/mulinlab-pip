@@ -68,6 +68,8 @@ $ make install
   $ cd 00_hg19
   $ wget https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
   $ gunzip hg19.fa.gz
+  $ http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes
+  $ head -n 24 hg19.chrom.sizes | sort -V > ./hg19_size.txt
   ```
 
   
