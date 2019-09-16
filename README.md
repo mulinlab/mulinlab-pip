@@ -30,6 +30,12 @@ Each pipeline is saved in a folder which is named by the pipeline name.
 
 ---
 
+## ATAC-seq
+
+* [MP_ATACseq_BDS](.MP_ATACseq_BDS/README.md): ATAC-seq or DNase-seq data processing pipeline
+
+----
+
 ## 4C-seq
 
 ---

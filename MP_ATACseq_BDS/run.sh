@@ -1,0 +1,1 @@
+bds /g/zhanye/atac_dnase_pipelines/atac.bds /g/zhanye/pipeline/atac-seq/test.cfg
